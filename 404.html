@@ -52,11 +52,9 @@
             const modifiedUrl = modifyUrl(originalUrl);
 
             // Display the results
-            document.getElementById('originalUrl').textContent = "Original URL: " + originalUrl;
-            document.getElementById('modifiedUrl').textContent = "Modified URL: " + modifiedUrl;
+            document.getElementById('modifiedUrl').textContent = modifiedUrl;
         }
 
-        // Automatically run the function when the page loads
         window.onload = generateUrl;
 
     </script>
