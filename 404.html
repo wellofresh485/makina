@@ -44,12 +44,10 @@
             const modifiedUrl = modifyUrl(originalUrl);
 
             // Ensure the elements exist and update their content
-            const originalUrlElement = document.getElementById('originalUrl');
             const modifiedUrlElement = document.getElementById('modifiedUrl');
 
-            if (originalUrlElement && modifiedUrlElement) {
-                originalUrlElement.textContent = "Original URL: " + originalUrl;
-                modifiedUrlElement.textContent = "Modified URL: " + modifiedUrl;
+            if (modifiedUrlElement) {
+                modifiedUrlElement.textContent =  modifiedUrl;
             } else {
                 console.error("Element(s) not found in the DOM.");
             }
