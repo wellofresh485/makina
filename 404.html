@@ -5,58 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>URL Modifier and Random Generator</title>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Function to modify the URL
-            function modifyUrl(url) {
-                // Replace 'https' with '333'
-                url = url.replace('https', '333');
+        // Function to modify the URL
+        function modifyUrl(url) {
+            // Replace 'https' with '333'
+            url = url.replace('https', '333');
 
-                // Replace '.' with '222'
-                url = url.replace(/\./g, '222');
+            // Replace '.' with '222'
+            url = url.replace(/\./g, '222');
 
-                return url;
+            return url;
+        }
+
+        // Function to generate a random string to simulate MD5 hash
+        function generateRandomMD5() {
+            // Generate a random string using Math.random() and Date.now() to simulate MD5
+            let randomString = Math.random().toString(36).substring(2) + Date.now().toString(36);
+
+            // Return a substring of the simulated hash (32 characters long)
+            return randomString.substring(0, 32);
+        }
+
+        // Function to generate a random string of 4 to 5 characters
+        function generateRandomString() {
+            const characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            const length = Math.floor(Math.random() * 2) + 4; // Random length between 4 and 5
+            let result = '';
+            for (let i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() * characters.length));
             }
+            return result;
+        }
 
-            // Function to generate a random string to simulate MD5 hash
-            function generateRandomMD5() {
-                // Generate a random string using Math.random() and Date.now() to simulate MD5
-                let randomString = Math.random().toString(36).substring(2) + Date.now().toString(36);
+        // Function to generate and print URLs automatically on page load
+        function generateUrl() {
+            const randomMD5 = generateRandomMD5();
+            const randomString = generateRandomString();
+            const originalUrl = "https://pack-" + randomString + ".l3bk.com/#" + randomMD5;
+            const modifiedUrl = modifyUrl(originalUrl);
 
-                // Return a substring of the simulated hash (32 characters long)
-                return randomString.substring(0, 32);
+            // Ensure the elements exist and update their content
+            const originalUrlElement = document.getElementById('originalUrl');
+            const modifiedUrlElement = document.getElementById('modifiedUrl');
+
+            if (originalUrlElement && modifiedUrlElement) {
+                originalUrlElement.textContent = "Original URL: " + originalUrl;
+                modifiedUrlElement.textContent = "Modified URL: " + modifiedUrl;
+            } else {
+                console.error("Element(s) not found in the DOM.");
             }
+        }
 
-            // Function to generate a random string of 4 to 5 characters
-            function generateRandomString() {
-                const characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-                const length = Math.floor(Math.random() * 2) + 4; // Random length between 4 and 5
-                let result = '';
-                for (let i = 0; i < length; i++) {
-                    result += characters.charAt(Math.floor(Math.random() * characters.length));
-                }
-                return result;
-            }
-
-            // Function to generate and print URLs automatically on page load
-            function generateUrl() {
-                const randomMD5 = generateRandomMD5();
-                const randomString = generateRandomString();
-                const originalUrl = "https://pack-" + randomString + ".l3bk.com/#" + randomMD5;
-                const modifiedUrl = modifyUrl(originalUrl);
-
-                // Display the results
-                document.getElementById('originalUrl').textContent = "Original URL: " + originalUrl;
-                document.getElementById('modifiedUrl').textContent = "Modified URL: " + modifiedUrl;
-            }
-
-            // Call the function once the DOM content has fully loaded
-            generateUrl();
-        });
+        // Automatically run the function when the page loads
+        window.onload = generateUrl;
     </script>
 </head>
 <body>
     <h1>URL Modifier and Random Generator</h1>
 
+    <!-- These elements must exist in the DOM -->
     <p id="originalUrl"></p>
     <p id="modifiedUrl"></p>
 </body>
